@@ -39,7 +39,7 @@ class ACarouselViewModel<Data, ID>: ObservableObject where Data : RandomAccessCo
     
     init(_ data: Data, id: KeyPath<Data.Element, ID>, index: Binding<Int>, spacing: CGFloat, headspace: CGFloat, sidesScaling: CGFloat, isWrap: Bool, autoScroll: ACarouselAutoScroll, canMove: Bool) {
         
-        guard index.wrappedValue < data.count else {
+        guard data.isEmpty || index.wrappedValue < data.count else {
             fatalError("The index should be less than the count of data ")
         }
         
